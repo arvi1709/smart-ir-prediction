@@ -1,0 +1,55 @@
+# -------------------
+# ENV FILES (VERY IMPORTANT)
+# -------------------
+.env
+*.env
+
+# -------------------
+# PYTHON
+# -------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# -------------------
+# IDE
+# -------------------
+.vscode/
+.idea/
+*.iml
+
+# -------------------
+# DATA / MODELS (IMPORTANT FOR ML PROJECTS)
+# -------------------
+*.onnx
+*.joblib
+*.h5
+*.pt
+
+# HuggingFace / ML cache
+.cache/
+huggingface/
+transformers_cache/
+sentence_transformers/
+
+# -------------------
+# JUPYTER
+# -------------------
+.ipynb_checkpoints/
+
+# -------------------
+# OS FILES
+# -------------------
+.DS_Store
+Thumbs.db
+
+# -------------------
+# DOCKER (optional logs/build artifacts)
+# -------------------
+*.log

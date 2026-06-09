@@ -1,0 +1,12 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+app/data/
+*.csv
+*.parquet
+.git/
+.ipynb_checkpoints/
+.vscode
+.idea
+*.pyc
