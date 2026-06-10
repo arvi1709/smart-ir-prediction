@@ -23,7 +23,8 @@ class LocalHashingEmbeddings:
         matrix = self.vectorizer.transform([text])
         matrix = normalize(matrix, norm="l2", axis=1)
         return matrix.toarray().astype(np.float32)[0].tolist()
-
+    def __call__(self, text: str) -> list:
+        return self.embed_query(text)
 
 embedding_model = LocalHashingEmbeddings()
 
