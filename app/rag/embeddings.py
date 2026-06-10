@@ -1,27 +1,31 @@
-from sentence_transformers import SentenceTransformer
+import numpy as np
+from sklearn.feature_extraction.text import HashingVectorizer
+from sklearn.preprocessing import normalize
 
 
-class SentenceTransformersEmbeddings:
+class LocalHashingEmbeddings:
 
-    def __init__(self, model_name: str):
-        self.model = SentenceTransformer(model_name)
+    def __init__(self):
+        self.vectorizer = HashingVectorizer(
+            n_features=384,
+            alternate_sign=False,
+            norm=None,
+            lowercase=True,
+            stop_words="english"
+        )
 
     def embed_documents(self, texts):
-        return self.model.encode(
-            texts,
-            normalize_embeddings=True
-        ).tolist()
+        matrix = self.vectorizer.transform(texts)
+        matrix = normalize(matrix, norm="l2", axis=1)
+        return matrix.toarray().astype(np.float32).tolist()
 
     def embed_query(self, text):
-        return self.model.encode(
-            [text],
-            normalize_embeddings=True
-        )[0].tolist()
+        matrix = self.vectorizer.transform([text])
+        matrix = normalize(matrix, norm="l2", axis=1)
+        return matrix.toarray().astype(np.float32)[0].tolist()
 
 
-embedding_model = SentenceTransformersEmbeddings(
-    "sentence-transformers/all-MiniLM-L6-v2"
-)
+embedding_model = LocalHashingEmbeddings()
 
 
 def embed_text(texts):

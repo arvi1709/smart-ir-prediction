@@ -12,11 +12,6 @@ pydantic
 
 faiss-cpu
 
-
-sentence-transformers
-transformers
-torch
-
 langchain
 langchain-community
 langchain-text-splitters
@@ -28,4 +23,4 @@ httpx
 
 python-multipart
 
-pydf
+pypdf
