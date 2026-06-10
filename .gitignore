@@ -32,9 +32,8 @@ env/
 *.h5
 *.pt
 
-# HuggingFace / ML cache
+# ML cache
 .cache/
-huggingface/
 transformers_cache/
 sentence_transformers/
 

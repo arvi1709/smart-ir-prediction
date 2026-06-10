@@ -5,8 +5,7 @@ def verify_assets():
     required_files = [
         "app/prediction/models/basic.pkl",
         "app/prediction/models/intermediate.pkl",
-        "app/prediction/models/advanced.pkl",
-        ".env"
+        "app/prediction/models/advanced.pkl"
     ]
 
     for file in required_files:
@@ -22,5 +21,8 @@ def verify_assets():
         raise FileNotFoundError(
             "FAISS index folder missing"
         )
+
+    if not os.path.exists(".env"):
+        print(".env not found; continuing with environment variables")
 
     print("Startup verification passed")
