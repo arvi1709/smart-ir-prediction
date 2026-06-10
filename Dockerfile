@@ -10,7 +10,6 @@ COPY . .
 
 ENV HF_HOME=/app/cache/huggingface
 
+EXPOSE 7860
 
-EXPOSE 8080
-
-CMD sh -c "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080}"
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
